@@ -1,0 +1,52 @@
+{
+  "name": "@joinflux/capacitor-firebase-dynamic-links",
+  "version": "0.0.4",
+  "description": "Capacitor Plugin for Firebase Dynamic Links",
+  "main": "dist/esm/index.js",
+  "types": "dist/esm/index.d.ts",
+  "scripts": {
+    "build": "npm run clean && tsc",
+    "clean": "rm -rf ./dist",
+    "watch": "tsc --watch",
+    "prepublishOnly": "npm run build"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@capacitor/core": "latest"
+  },
+  "devDependencies": {
+    "typescript": "^3.9.0",
+    "@capacitor/ios": "latest",
+    "@capacitor/android": "latest"
+  },
+  "files": [
+    "dist/",
+    "ios/",
+    "android/",
+    "JoinfluxCapacitorFirebaseDynamicLinks.podspec"
+  ],
+  "keywords": [
+    "capacitor",
+    "firebase",
+    "dynamic links",
+    "plugin",
+    "native"
+  ],
+  "capacitor": {
+    "ios": {
+      "src": "ios"
+    },
+    "android": {
+      "src": "android"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/joinflux/capacitor-firebase-dynamic-links.git"
+  },
+  "bugs": {
+    "url": "https://github.com/joinflux/capacitor-firebase-dynamic-links.git/issues"
+  },
+  "homepage": "https://github.com/joinflux/capacitor-firebase-dynamic-links#readme"
+}
