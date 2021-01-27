@@ -10,23 +10,13 @@ Capacitor plugin for [Firebase Dynamic Links](https://firebase.google.com/docs/d
 npm i @joinflux/capacitor-firebase-dynamic-links
 ```
 
+### Android
 
-### iOS Configuration
+Unknown, at the moment we have not tested the implementation on Android.
 
-1. Import the Firebase module in your `UIApplicationDelegate`:
+### iOS
 
-```
-import Firebase
-```
-
-2. Configure a FirebaseApp shared instance, typically in your app's `application:didFinishLaunchingWithOptions:` method:
-
-```
-FirebaseApp.configure()
-```
-
-For advanced options please refer https://firebase.google.com/docs/dynamic-links/ios/create
-
+Nothing more needed
 
 ### Web
 
@@ -34,7 +24,7 @@ None
 
 ## Methods
 
-### CapacitorFirebaseDynamicLinks.addListener('deepLinkOpen', (data: { url: string })
+### AddListener
 
 Add this method when the app starts to listen for the dynamic link.
 
