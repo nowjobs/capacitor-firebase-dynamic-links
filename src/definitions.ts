@@ -11,5 +11,6 @@ export interface CapacitorFirebaseDynamicLinksPlugin {
 }
 
 export interface DeepLinkOpen {
-  url: string
+  slug: string
+  query: string
 }

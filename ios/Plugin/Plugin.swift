@@ -24,7 +24,9 @@ public class CapacitorFirebaseDynamicLinks: CAPPlugin {
         }
 
         if DynamicLinks.dynamicLinks().dynamicLink(fromCustomSchemeURL: object["url"] as! URL) != nil {
-            self.notifyListeners("deepLinkOpen", data: makeUrlOpenObject(object), retainUntilConsumed: true)
+            let params = (object["url"] as? NSURL)?.query ?? ""
+            let path = (object["url"] as? NSURL)?.path ?? ""
+            self.sendNotification(path: path, params: params)
         }
     }
     
@@ -32,21 +34,18 @@ public class CapacitorFirebaseDynamicLinks: CAPPlugin {
         guard let object = notification.object as? [String:Any?] else {
             return
         }
-        
+
         DynamicLinks.dynamicLinks().handleUniversalLink(object["url"] as! URL) { (dynamiclink, error) in
-            let url = dynamiclink?.url?.absoluteString ?? ""
-            
-            self.notifyListeners("deepLinkOpen", data: ["url": url], retainUntilConsumed: true)
+            // URL query params are not present in the "dynamicLink"
+            // object, so we extract it from the "url" property
+            let params = (object["url"] as? NSURL)?.query ?? ""
+            let path = dynamiclink?.url?.path ?? ""
+            self.sendNotification(path: path, params: params)
         }
     }
     
-    func makeUrlOpenObject(_ object: [String:Any?]) -> JSObject {
-        guard let url = object["url"] as? NSURL else {
-            return [:]
-        }
-        
-        return [
-            "url": url.absoluteString ?? ""
-        ]
+    func sendNotification(path: String, params: String) {
+        let data = ["slug": path, "query": params ]
+        self.notifyListeners("deepLinkOpen", data: data, retainUntilConsumed: true)
     }
 }
