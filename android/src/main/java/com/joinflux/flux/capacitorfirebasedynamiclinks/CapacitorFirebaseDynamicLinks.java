@@ -43,7 +43,7 @@ public class CapacitorFirebaseDynamicLinks extends Plugin {
 
                         if (deepLink != null) {
                             JSObject ret = new JSObject();
-                            ret.put("slug", deepLink.toString());
+                            ret.put("slug", deepLink.getPath());
                             ret.put("query", deepLink.getQuery());
                             notifyListeners(EVENT_DEEP_LINK, ret, true);
                         }
