@@ -1,4 +1,4 @@
-package health.clipboard.links.dynamic.firebase.capacitor;
+package com.joinflux.flux.capacitorfirebasedynamiclinks;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -23,6 +23,10 @@ public class CapacitorFirebaseDynamicLinks extends Plugin {
 
     private static final String EVENT_DEEP_LINK = "deepLinkOpen";
 
+    public void load () {
+        Log.println(1, "DynamicLinks", "plugin loaded");
+    }
+
     @Override
     protected void handleOnNewIntent(Intent intent) {
         super.handleOnNewIntent(intent);
@@ -39,7 +43,8 @@ public class CapacitorFirebaseDynamicLinks extends Plugin {
 
                         if (deepLink != null) {
                             JSObject ret = new JSObject();
-                            ret.put("url", deepLink.toString());
+                            ret.put("slug", deepLink.getPath());
+                            ret.put("query", deepLink.getQuery());
                             notifyListeners(EVENT_DEEP_LINK, ret, true);
                         }
                     }
