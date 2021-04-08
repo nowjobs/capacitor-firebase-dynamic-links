@@ -23,11 +23,14 @@ public class CapacitorFirebaseDynamicLinks: CAPPlugin {
             return
         }
 
-        if DynamicLinks.dynamicLinks().dynamicLink(fromCustomSchemeURL: object["url"] as! URL) != nil {
-            let params = (object["url"] as? NSURL)?.query ?? ""
-            let path = (object["url"] as? NSURL)?.path ?? ""
-            self.sendNotification(path: path, params: params)
+        guard let dynamicLink = DynamicLinks.dynamicLinks().dynamicLink(fromCustomSchemeURL: object["url"] as! URL) else {
+            print("failed to parse dynamic link")
+            return
         }
+            
+        let params = dynamicLink.url?.query ?? ""
+        let path = dynamicLink.url?.path ?? ""
+        self.sendNotification(path: path, params: params)
     }
     
     @objc func handleUniversalLink(notification: NSNotification) {
@@ -36,9 +39,7 @@ public class CapacitorFirebaseDynamicLinks: CAPPlugin {
         }
 
         DynamicLinks.dynamicLinks().handleUniversalLink(object["url"] as! URL) { (dynamiclink, error) in
-            // URL query params are not present in the "dynamicLink"
-            // object, so we extract it from the "url" property
-            let params = (object["url"] as? NSURL)?.query ?? ""
+            let params = dynamiclink?.url?.query ?? ""
             let path = dynamiclink?.url?.path ?? ""
             self.sendNotification(path: path, params: params)
         }
