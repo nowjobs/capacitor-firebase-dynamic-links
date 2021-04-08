@@ -1,6 +1,6 @@
 {
   "name": "@joinflux/capacitor-firebase-dynamic-links",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Capacitor Plugin for Firebase Dynamic Links",
   "main": "dist/esm/index.js",
   "types": "dist/esm/index.d.ts",
