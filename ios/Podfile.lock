@@ -1,7 +1,7 @@
 PODS:
-  - Capacitor (2.4.6):
+  - Capacitor (3.1.2):
     - CapacitorCordova
-  - CapacitorCordova (2.4.6)
+  - CapacitorCordova (3.1.2)
   - Firebase/Analytics (6.7.0):
     - Firebase/Core
   - Firebase/Core (6.7.0):
@@ -103,8 +103,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/@capacitor/ios"
 
 SPEC CHECKSUMS:
-  Capacitor: 0f131577d41c082931f00cc080e2289d503465c8
-  CapacitorCordova: 3375b39b5ebca770ac7869f85e4dea32a642c9e0
+  Capacitor: 9d06cf7a97c4752037907979baade2f79f2800fa
+  CapacitorCordova: b8e7144f5dad047965035dbed9c9855b1f0f64e8
   Firebase: 291d7b0a7b393f252358083b5d224884126fa46d
   FirebaseAnalytics: 843c7f64a8f9c79f0d03281197ebe7bb1d58d477
   FirebaseAnalyticsInterop: d48b6ab67bcf016a05e55b71fc39c61c0cb6b7f3
@@ -119,6 +119,6 @@ SPEC CHECKSUMS:
   GoogleUtilities: e7dc37039b19df7fe543479d3e4a02ac8d11bb69
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
 
-PODFILE CHECKSUM: c044077c776249fcb0be61eaea771d9c1c95f26d
+PODFILE CHECKSUM: 646dcd6a64a46a41c8c2e4510b58980e4ec95c77
 
-COCOAPODS: 1.10.0
+COCOAPODS: 1.10.1
