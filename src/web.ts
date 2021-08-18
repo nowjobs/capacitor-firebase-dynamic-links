@@ -6,10 +6,7 @@ export class CapacitorFirebaseDynamicLinksWeb
   implements CapacitorFirebaseDynamicLinksPlugin
 {
   constructor() {
-    super({
-      name: "CapacitorFirebaseDynamicLinks",
-      platforms: ["web"],
-    });
+    super();
   }
 }
 
