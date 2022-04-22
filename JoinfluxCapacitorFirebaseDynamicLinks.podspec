@@ -1,7 +1,7 @@
 
   Pod::Spec.new do |s|
     s.name = 'JoinfluxCapacitorFirebaseDynamicLinks'
-    s.version = '0.1'
+    s.version = '0.2'
     s.summary = 'Capacitor Plugin for Firebase Dynamic Links'
     s.license = 'MIT'
     s.homepage = 'https://github.com/joinflux/capacitor-firebase-dynamic-links.git'
