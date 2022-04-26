@@ -24,7 +24,7 @@ public class CapacitorFirebaseDynamicLinks extends Plugin {
     private static final String EVENT_DEEP_LINK = "deepLinkOpen";
 
     public void load () {
-        Log.println(1, "DynamicLinks", "plugin loaded");
+        Log.println(Log.DEBUG, "DynamicLinks", "plugin loaded");
     }
 
     @Override

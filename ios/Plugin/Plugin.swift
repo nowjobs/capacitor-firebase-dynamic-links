@@ -17,14 +17,12 @@ public class CapacitorFirebaseDynamicLinks: CAPPlugin {
         NotificationCenter.default.addObserver(self, selector: #selector(self.handleUniversalLink(notification:)), name: Notification.Name.capacitorOpenUniversalLink, object: nil)
     }
     
-    
     @objc func handleUrlOpened(notification: NSNotification) {
         guard let object = notification.object as? [String:Any?] else {
             return
         }
 
         guard let dynamicLink = DynamicLinks.dynamicLinks().dynamicLink(fromCustomSchemeURL: object["url"] as! URL) else {
-            print("failed to parse dynamic link")
             return
         }
             
