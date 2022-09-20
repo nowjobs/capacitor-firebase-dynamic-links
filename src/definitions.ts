@@ -1,6 +1,6 @@
 import { PluginListenerHandle } from "@capacitor/core";
 
-export interface CapacitorFirebaseDynamicLinksPlugin {
+export interface FirebaseDynamicLinksPlugin {
   addListener(
     eventName: "deepLinkOpen",
     listenerFunc: (data: DeepLinkOpen) => void

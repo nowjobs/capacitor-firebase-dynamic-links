@@ -1,20 +1,20 @@
 import { registerPlugin, WebPlugin } from "@capacitor/core";
-import { CapacitorFirebaseDynamicLinksPlugin } from "./definitions";
+import { FirebaseDynamicLinksPlugin } from "./definitions";
 
-export class CapacitorFirebaseDynamicLinksWeb
+export class FirebaseDynamicLinksWeb
   extends WebPlugin
-  implements CapacitorFirebaseDynamicLinksPlugin
+  implements FirebaseDynamicLinksPlugin
 {
   constructor() {
     super();
   }
 }
 
-const CapacitorFirebaseDynamicLinks =
-  registerPlugin<CapacitorFirebaseDynamicLinksWeb>(
-    "CapacitorFirebaseDynamicLinks",
+const FirebaseDynamicLinks =
+  registerPlugin<FirebaseDynamicLinksWeb>(
+    "FirebaseDynamicLinks",
     {
-      web: () => new CapacitorFirebaseDynamicLinksWeb(),
+      web: () => new FirebaseDynamicLinksWeb(),
     }
   );
-export { CapacitorFirebaseDynamicLinks };
+export { FirebaseDynamicLinks };
