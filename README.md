@@ -10,6 +10,12 @@ Capacitor plugin for [Firebase Dynamic Links](https://firebase.google.com/docs/d
 npm i @joinflux/capacitor-firebase-dynamic-links
 ```
 
+### Capacitor 3 vs Capacitor 4
+
+- Version 0.2.0 or lower will target the latest Capacitor version
+  - Capacitor 3 is recommended for this version
+- Version >1.0.0 will target Capacitor 4
+
 ### Android
 
 Unknown, at the moment we have not tested the implementation on Android.
@@ -29,7 +35,10 @@ None
 Add this method when the app starts to listen for the dynamic link.
 
 ```js
-CapacitorFirebaseDynamicLinks.addListener('deepLinkOpen', (data: { url: string }) => {
-  // Implement your navigation handler
-})
+CapacitorFirebaseDynamicLinks.addListener(
+  'deepLinkOpen',
+  (data: { url: string }) => {
+    // Implement your navigation handler
+  },
+);
 ```
