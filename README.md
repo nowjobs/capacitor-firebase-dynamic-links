@@ -10,11 +10,12 @@ Capacitor plugin for [Firebase Dynamic Links](https://firebase.google.com/docs/d
 npm i @joinflux/capacitor-firebase-dynamic-links
 ```
 
-### Capacitor 3 vs Capacitor 4
+### Versioning
 
 - Version 0.2.0 or lower will target the latest Capacitor version
   - Capacitor 3 is recommended for this version
-- Version >1.0.0 will target Capacitor 4
+- Version 1.x.x will target Capacitor 4
+- Version 2.x.x will target Capacitor 5
 
 ### Android
 
