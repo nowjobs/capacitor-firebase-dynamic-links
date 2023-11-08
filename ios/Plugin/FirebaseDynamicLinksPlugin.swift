@@ -5,10 +5,6 @@ import FirebaseDynamicLinks
 
 typealias JSObject = [String:Any]
 
-extension Notification.Name {
-    public static let firebaseDynamicLink = Notification.Name(rawValue: "FirebaseDynamicLink")
-}
-
 @objc(CapacitorFirebaseDynamicLinks)
 public class CapacitorFirebaseDynamicLinks: CAPPlugin {
 
@@ -17,8 +13,16 @@ public class CapacitorFirebaseDynamicLinks: CAPPlugin {
             FirebaseApp.configure()
         }
 
+        var universalLinkNotificationName = Notification.Name.capacitorOpenUniversalLink
+
+        let config = self.getConfig()
+        let universalLinkConfig = config.getString("universalLinksNotificationName")
+        if (universalLinkConfig != nil) {
+            universalLinkNotificationName = Notification.Name(universalLinkConfig!)
+        }
+
         NotificationCenter.default.addObserver(self, selector: #selector(self.handleUrlOpened(notification:)), name: Notification.Name.capacitorOpenURL, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.handleUniversalLink(notification:)), name: Notification.Name.firebaseDynamicLink, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.handleUniversalLink(notification:)), name: universalLinkNotificationName, object: nil)
     }
 
     @objc func handleUrlOpened(notification: NSNotification) {
