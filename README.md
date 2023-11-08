@@ -33,7 +33,7 @@ None
 
 | Name                     | Type     | Description                                                                                                                   |
 | ------------------------ | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| universalLinksNotificationName | string | (IOS only) Overrides the default notification name used by Capacitor. Override this if you have other plugins (e.g. Apps Flyer) that also use deep links. See more info below |
+| universalLinksNotificationName | string | (IOS only) Overrides the default notification name used by Capacitor. Configure this if you have other plugins (e.g. Apps Flyer) that also use deep links. See more info below |
 
 Provide configuration in root `capacitor.config.json`
 
