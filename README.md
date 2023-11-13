@@ -29,6 +29,71 @@ Nothing more needed
 
 None
 
+## Configuration
+
+| Name                     | Type     | Description                                                                                                                   |
+| ------------------------ | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| universalLinksNotificationName | string | (IOS only) Overrides the default notification name used by Capacitor. Configure this if you have other plugins (e.g. Apps Flyer) that also use deep links. See more info below |
+
+Provide configuration in root `capacitor.config.json`
+
+```json
+{
+  "plugins": {
+    "FirebaseDynamicLinks": {
+      "universalLinksNotificationName": "firebaseOpenUniversalLink"
+    }
+  }
+}
+```
+
+or in `capacitor.config.ts`
+
+```ts
+const config: CapacitorConfig = {
+  plugins: {
+    FirebaseDynamicLinks: {
+      universalLinksNotificationName: 'firebaseOpenUniversalLink',
+    },
+  },
+};
+```
+
+### (IOS only) Additional set up for `universalLinksNotificationName`
+
+If you use this configuration, you need to intercept Firebase Dynamic links in your `AppDelegate.swift` file. For example:
+
+``` swift
+
+@UIApplicationMain
+class AppDelegate: UIResponder, UIApplicationDelegate {
+
+    ...omitted for brevity
+
+    func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
+        // To get Firebase dynamic links to play along nicely with Apps Flyer,
+        // we intercept them and use a custom notification name
+        let url = userActivity.webpageURL?.absoluteString
+        if (url != nil && isFirebaseDynamicLink(url: url!)) {
+            // The notification name has to match what you've specified in your Capacitor config
+            NotificationCenter.default.post(name: Notification.Name("firebaseOpenUniversalLink"), object: [
+                "url": userActivity.webpageURL
+            ])
+            return true
+        }
+
+        // Called when the app was launched with an activity, including Universal Links.
+        // Feel free to add additional processing here, but if you want the App API to support
+        // tracking app url opens, make sure to keep this call
+        return ApplicationDelegateProxy.shared.application(application, continue: userActivity, restorationHandler: restorationHandler)
+    }
+
+    func isFirebaseDynamicLink(url: String) -> Bool {
+        return url.hasPrefix("https://your-firebase-links.page.link")
+    }
+}
+```
+
 ## Methods
 
 ### AddListener
