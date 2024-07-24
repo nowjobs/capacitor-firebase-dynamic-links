@@ -1,0 +1,79 @@
+{
+  "api": {
+    "name": "FirebaseDynamicLinksPlugin",
+    "slug": "firebasedynamiclinksplugin",
+    "docs": "",
+    "tags": [],
+    "methods": [
+      {
+        "name": "addListener",
+        "signature": "(eventName: \"deepLinkOpen\", listenerFunc: (data: DeepLinkOpen) => void) => PluginListenerHandle",
+        "parameters": [
+          {
+            "name": "eventName",
+            "docs": "",
+            "type": "'deepLinkOpen'"
+          },
+          {
+            "name": "listenerFunc",
+            "docs": "",
+            "type": "(data: DeepLinkOpen) => void"
+          }
+        ],
+        "returns": "PluginListenerHandle",
+        "tags": [],
+        "docs": "",
+        "complexTypes": [
+          "PluginListenerHandle",
+          "DeepLinkOpen"
+        ],
+        "slug": "addlistenerdeeplinkopen"
+      }
+    ],
+    "properties": []
+  },
+  "interfaces": [
+    {
+      "name": "PluginListenerHandle",
+      "slug": "pluginlistenerhandle",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "remove",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "() => Promise<void>"
+        }
+      ]
+    },
+    {
+      "name": "DeepLinkOpen",
+      "slug": "deeplinkopen",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "slug",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "query",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "string"
+        }
+      ]
+    }
+  ],
+  "enums": [],
+  "typeAliases": [],
+  "pluginConfigs": []
+}
